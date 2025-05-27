@@ -1,3 +1,6 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,17 +29,50 @@
       alert('Order submitted successfully. You will be contacted within 30 minutes.');
       document.getElementById('order-form').reset();
     }
+    // You'll need a similar function for KRA services if it involves a form/direct contact
+    function kraServiceContact(serviceType) {
+      const message = `KRA Service Inquiry:%0AInterested in: ${serviceType}%0APlease provide more details about your inquiry.`;
+      window.open(`https://wa.me/254748340864?text=${message}`, '_blank');
+    }
   </script>
 </head>
 <body class="bg-gray-100 text-gray-800">
   <header class="bg-black text-white text-center p-6">
-    <h1 class="text-3xl font-bold">TOOSIIlink Company - Foreign Numbers</h1>
+    <h1 class="text-3xl font-bold">TOOSIIlink Company - Foreign Numbers & KRA Services</h1>
     <p class="mt-2 text-yellow-400">CEO: TOOSII KE | 200 KSh per approved number</p>
   </header>
   <main class="max-w-4xl mx-auto p-6 space-y-12">
     <section>
       <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">About</h2>
-      <p>TOOSIIlink Company provides secure and fast delivery of foreign WhatsApp numbers. Perfect for business, regional access, or anonymity. Trusted by thousands across Kenya. Reliable, quick, and 100% verified services.</p>
+      <p>TOOSIIlink Company provides secure and fast delivery of foreign WhatsApp numbers. Perfect for business, regional access, or anonymity. We also offer comprehensive KRA services to assist individuals and businesses in Kenya. Trusted by thousands across Kenya. Reliable, quick, and 100% verified services.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">KRA Services</h2>
+      <p class="mb-4">We provide a range of Kenya Revenue Authority (KRA) services to help you comply with tax regulations easily and efficiently. Our services include:</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li>KRA PIN Registration: Get your KRA Personal Identification Number quickly.</li>
+        <li>Tax Returns Filing (Individual & Business): Assistance with accurate and timely filing of annual tax returns (ITR, VTR, etc.).</li>
+        <li>KRA Password Reset/Recovery: Help with retrieving forgotten KRA portal passwords.</li>
+        <li>Amendment of KRA Details: Update your KRA information, such as address, email, or phone number.</li>
+        <li>Tax Compliance Certificate (TCC) Application: Apply for your Tax Compliance Certificate effortlessly.</li>
+        <li>Nil Returns Filing: For individuals with no taxable income.</li>
+      </ul>
+      <p class="mt-4">For inquiries about our KRA services, please contact us directly via WhatsApp by clicking on the service you need below:</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+        <button onclick="kraServiceContact('KRA PIN Registration')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
+          <i class="fab fa-whatsapp mr-2"></i> KRA PIN Registration
+        </button>
+        <button onclick="kraServiceContact('Tax Returns Filing')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
+          <i class="fab fa-whatsapp mr-2"></i> Tax Returns Filing
+        </button>
+        <button onclick="kraServiceContact('KRA Password Reset')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
+          <i class="fab fa-whatsapp mr-2"></i> KRA Password Reset
+        </button>
+        <button onclick="kraServiceContact('TCC Application')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
+          <i class="fab fa-whatsapp mr-2"></i> TCC Application
+        </button>
+        </div>
     </section>
     <section>
       <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Requirements</h2>
@@ -122,5 +158,5 @@
     <p>&copy; 2025 TOOSIIlink Company | Foreign WhatsApp Numbers</p>
   </footer>
 </body>
-  </html>
-          
+                                            </html>
+  
