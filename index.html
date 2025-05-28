@@ -22,7 +22,7 @@
 
     /* New Header/Footer Styles */
     header, footer {
-        /* Gradient background */
+        /* Gradient background - initial state for footer, will be animated */
         background: linear-gradient(to right, #4a00e0, #8e2de2); /* Blue to Purple */
         color: white; /* Ensure text is white for contrast */
         text-align: center;
@@ -198,7 +198,7 @@
         margin-right: 8px;
     }
 
-    /* New Animation Styles for Footer */
+    /* Animation Styles for Footer */
     footer {
       /* Apply the animation */
       animation: color-pulse 5s infinite alternate; /* 5 seconds duration, infinite, alternate direction */
@@ -206,10 +206,10 @@
 
     @keyframes color-pulse {
       0% {
-        background: linear-gradient(to right, #4a00e0, #8e2de2); /* Blue to Purple */
+        background: linear-gradient(to right, #4a00e0, #8e2de2); /* Original: Blue to Purple */
       }
       50% {
-        background: linear-gradient(to right, #ff7e5f, #feb47b); /* Orange to Peach */
+        background: linear-gradient(to right, #ff4e50, #fc913a); /* Orange to Red vibrant */
       }
       100% {
         background: linear-gradient(to right, #4a00e0, #8e2de2); /* Back to Blue to Purple */
@@ -320,7 +320,7 @@
           <i class="fab fa-whatsapp"></i> DL Renewal
         </button>
     </div>
-   </div>
+  </div>
 
   <main class="max-w-4xl mx-auto p-6 space-y-12">
     <section>
