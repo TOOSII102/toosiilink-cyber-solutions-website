@@ -3,39 +3,34 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TOOSIIlink Company - Digital Solutions & Foreign WhatsApp Numbers</title>
+    <title>TOOSIIlink Company - Premier Digital Solutions & Global Virtual Numbers</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Base Styles & Typography */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8; /* Lighter, more modern background */
+            background-color: #f0f2f5; /* Light grey for a clean backdrop */
             color: #333;
-        }
-        .flag {
-            width: 24px; /* Slightly larger flags */
-            height: 16px;
-            border-radius: 3px;
-            object-fit: cover;
-            margin-right: 8px; /* More spacing */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow for flags */
+            line-height: 1.6;
         }
 
-        header, footer {
-            background: linear-gradient(to right, #1a237e, #4248a3); /* Deeper, more professional blue/purple */
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0; /* Consistent padding */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for header/footer */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2c3e50; /* Darker blue-grey for headings */
         }
 
+        /* Header Styling */
         header {
-            position: relative;
+            background: linear-gradient(to right, #2c3e50, #34495e); /* Deep blue-grey gradient */
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2); /* More pronounced shadow */
             display: flex;
-            justify-content: center; /* Center content horizontally */
+            justify-content: center;
             align-items: center;
         }
 
@@ -44,45 +39,47 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 1200px; /* Max width for content */
+            max-width: 1200px;
             padding: 0 1.5rem;
         }
 
-        .header-text {
-            text-align: left; /* Align header text to left */
-        }
-
         .header-text h1 {
-            font-size: 2.25rem; /* Larger and bolder title */
+            font-size: 2.5rem;
             font-weight: 700;
             line-height: 1.2;
+            color: #ecf0f1; /* Lighter color for main title */
         }
 
         .header-text p {
-            font-size: 1rem;
-            color: #c5cae9; /* Lighter text for tagline */
+            font-size: 1.05rem;
+            color: #bdc3c7; /* Subtle light grey for taglines */
             margin-top: 0.5rem;
         }
 
         .hamburger-icon {
-            font-size: 2rem;
+            font-size: 2.2rem;
             cursor: pointer;
             color: white;
             z-index: 1000;
-            padding: 0.5rem; /* Make clickable area larger */
+            padding: 0.6rem;
+            transition: color 0.3s ease;
+        }
+        .hamburger-icon:hover {
+            color: #95a5a6; /* Slightly darker on hover */
         }
 
+        /* Side Menu Styling */
         .side-menu {
             position: fixed;
             top: 0;
-            right: -320px; /* Adjusted for larger menu width */
+            right: -320px;
             width: 300px;
             height: 100%;
-            background-color: #263238; /* Darker, more solid background */
+            background-color: #34495e; /* Darker background */
             color: white;
             padding: 20px;
-            box-shadow: -4px 0 10px rgba(0,0,0,0.3); /* Stronger shadow */
-            transition: right 0.3s ease-in-out;
+            box-shadow: -6px 0 15px rgba(0,0,0,0.4);
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* More engaging transition */
             z-index: 999;
             overflow-y: auto;
         }
@@ -93,250 +90,334 @@
 
         .side-menu .close-menu-button {
             position: absolute;
-            top: 15px; /* Adjusted position */
+            top: 15px;
             left: 20px;
-            font-size: 2.5rem; /* Larger close button */
-            color: #eceff1; /* Lighter color */
+            font-size: 2.8rem;
+            color: #ecf0f1;
             cursor: pointer;
             line-height: 1;
+            transition: color 0.3s ease;
+        }
+        .side-menu .close-menu-button:hover {
+            color: #c0392b; /* Red on hover for close */
         }
 
         .side-menu h3 {
             text-align: center;
-            margin-top: 40px; /* More space from top */
-            margin-bottom: 25px;
-            font-size: 1.6rem; /* Slightly larger font */
-            color: #81c784; /* Green accent for services */
+            margin-top: 50px; /* More space from top */
+            margin-bottom: 30px;
+            font-size: 1.7rem;
+            color: #2ecc71; /* Professional green accent */
             font-weight: 600;
+            border-bottom: 2px solid rgba(46, 204, 113, 0.3); /* Subtle underline */
+            padding-bottom: 10px;
         }
 
         .side-menu .whatsapp-service-button {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Align text to start */
-            background-color: #2e7d32; /* Darker WhatsApp green */
+            background-color: #27ae60; /* Muted WhatsApp green */
             color: white;
-            padding: 12px 15px; /* More padding */
+            padding: 12px 18px;
             border: none;
-            border-radius: 6px; /* Slightly more rounded */
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem; /* Clearer font size */
+            font-size: 1.05rem;
             text-decoration: none;
-            margin-bottom: 12px; /* More space between buttons */
+            margin-bottom: 10px;
             font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform for hover effect */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             width: 100%;
             box-sizing: border-box;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .side-menu .whatsapp-service-button:hover {
-            background-color: #388e3c; /* Lighter green on hover */
-            transform: translateX(5px); /* Slight slide on hover */
+            background-color: #2ecc71; /* Lighter green on hover */
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .side-menu .whatsapp-service-button i {
-            margin-right: 12px; /* More space for icon */
-            font-size: 1.2rem; /* Larger icon */
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Main Content Sections */
+        main {
+            padding: 2.5rem 1.5rem; /* Generous padding */
+        }
+
+        section {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Enhanced shadow */
+            margin-bottom: 2.5rem; /* Consistent spacing */
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid #3498db; /* Professional blue accent */
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: left;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: none; /* Remove default bullets */
+            padding-left: 0;
+        }
+        ul li {
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        ul li:before {
+            content: "\f00c"; /* FontAwesome checkmark icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #2ecc71; /* Green checkmark */
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.9em;
+        }
+        ul.list-circle li:before { /* If you specifically want circles */
+            content: "\2022"; /* Unicode bullet */
+            font-family: sans-serif; /* Override Font Awesome for simple bullet */
+            color: #3498db; /* Blue circle */
+            font-size: 1.2em;
+            top: 0px;
         }
 
         /* M-Pesa Section */
         #showMpesaButton {
-            background-color: #388e3c; /* Professional green */
+            background-color: #3498db; /* Professional blue */
             color: white;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-top: 25px;
-            margin-bottom: 25px;
+            margin-top: 20px;
+            margin-bottom: 30px;
             display: block;
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         #showMpesaButton:hover {
-            background-color: #43a047;
-            transform: translateY(-2px);
+            background-color: #2980b9;
+            transform: translateY(-3px);
         }
 
         #mpesaInstructions {
-            border: 1px solid #e0e0e0; /* Lighter border */
-            padding: 20px;
+            border: 1px solid #e0e0e0;
+            padding: 25px;
             border-radius: 10px;
             background-color: #ffffff;
             margin-bottom: 30px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* More pronounced shadow */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
         #mpesaInstructions h3,
         #mpesaInstructions h4 {
-            color: #212121; /* Darker text for headings */
+            color: #2c3e50;
             text-align: center;
-            margin-bottom: 15px;
-            font-weight: 600;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
-
-        #mpesaInstructions p {
-            line-height: 1.7; /* Better line spacing */
+        #mpesaInstructions ul {
+            list-style-type: decimal; /* Use numbers for steps */
+            padding-left: 20px;
+        }
+        #mpesaInstructions ul li:before {
+            content: none; /* Remove FontAwesome checkmark for ordered list */
+        }
+        #mpesaInstructions ul li {
+            padding-left: 0; /* Reset padding for ordered list */
             margin-bottom: 12px;
         }
 
-        #mpesaInstructions ul {
-            list-style-type: disc; /* Use discs for lists */
-            padding-left: 25px; /* Indent list items */
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        #mpesaInstructions ul li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
 
         .whatsapp-contact-button {
             display: block;
             background-color: #25D366;
             color: white;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 25px;
+            margin-bottom: 15px;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             text-align: center;
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .whatsapp-contact-button:hover {
             background-color: #1DA851;
+            transform: translateY(-2px);
         }
 
-        /* Footer animation */
-        footer {
-            animation: color-pulse 5s infinite alternate;
+        /* Image Styling for KRA Section */
+        .kra-image-container {
+            text-align: center;
+            margin: 2rem 0; /* More vertical space */
+        }
+        .kra-image {
+            max-width: 80%; /* Slightly smaller, more contained image */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Stronger, more refined shadow */
+            display: inline-block; /* Allows centering */
         }
 
-        @keyframes color-pulse {
-            0% {
-                background: linear-gradient(to right, #1a237e, #4248a3); /* Deep blue to soft purple */
-            }
-            50% {
-                background: linear-gradient(to right, #0d47a1, #2196f3); /* Slightly brighter blue */
-            }
-            100% {
-                background: linear-gradient(to right, #1a237e, #4248a3);
-            }
+        /* Flag Styling */
+        .flag {
+            width: 28px;
+            height: 19px;
+            border-radius: 4px;
+            object-fit: cover;
+            margin-right: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #ddd; /* Subtle border for flags */
         }
 
-        /* General section styling */
-        section {
-            background-color: #ffffff;
-            padding: 2.5rem; /* More generous padding */
-            border-radius: 12px; /* Softly rounded corners */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.07); /* Enhanced shadow */
-            margin-bottom: 2rem; /* Consistent spacing between sections */
-        }
-
-        h2 {
-            font-size: 2.2rem; /* Larger section titles */
-            font-weight: 700;
-            border-bottom: 3px solid #81c784; /* Green accent for headings */
-            padding-bottom: 12px;
-            margin-bottom: 25px;
-            color: #212121;
-        }
-
-        p {
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        ul.list-disc {
-            padding-left: 1.5rem;
-        }
-        ul.list-circle {
-            list-style-type: circle;
-            padding-left: 1.5rem;
-        }
-
-        /* Form styling */
+        /* Form Styling */
         form input, form select, form button {
-            padding: 12px;
-            border: 1px solid #e0e0e0;
+            padding: 14px; /* More generous padding */
+            border: 1px solid #dcdcdc; /* Lighter border */
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.05rem;
             width: 100%;
-            box-sizing: border-box; /* Ensure padding doesn't increase width */
+            box-sizing: border-box;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         form input:focus, form select:focus {
-            border-color: #81c784;
+            border-color: #3498db; /* Blue focus */
             outline: none;
-            box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.2); /* Focus ring */
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2); /* Soft focus ring */
         }
 
         form button[type="submit"] {
-            background-color: #ffc107; /* Yellowish accent */
-            color: #333;
+            background-color: #2ecc71; /* Professional green for submit */
+            color: white;
             font-weight: 700;
-            padding: 14px;
-            margin-top: 1.5rem;
+            padding: 16px;
+            margin-top: 2rem;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         form button[type="submit"]:hover {
-            background-color: #ffca28;
-            transform: translateY(-2px);
+            background-color: #27ae60;
+            transform: translateY(-3px);
         }
 
-        /* Contact section */
+        /* Contact Section */
         .contact-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 1.05rem;
         }
+        .contact-list a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-list a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
 
-        /* Follow Us section */
+        /* Social Links */
         .social-links a {
             display: inline-flex;
             align-items: center;
-            background-color: #e3f2fd; /* Light blue background */
-            color: #1565c0; /* Darker blue text */
-            padding: 8px 15px;
+            background-color: #ecf0f1; /* Light background */
+            color: #34495e; /* Darker text */
+            padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-right: 12px; /* Added margin for spacing between links */
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+            margin-right: 15px;
+            margin-bottom: 10px; /* For wrapping on smaller screens */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .social-links a:last-child {
-            margin-right: 0; /* Remove margin from the last link */
+            margin-right: 0;
         }
 
-
         .social-links a:hover {
-            background-color: #c5e1a5; /* Lighter green on hover */
-            transform: translateY(-2px);
+            background-color: #3498db; /* Blue on hover */
+            color: white;
+            transform: translateY(-3px);
         }
 
         .social-links a i {
-            margin-right: 8px;
-            font-size: 1.1rem;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50; /* Matches header */
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1.5rem 0;
+            box-shadow: 0 -3px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            .header-text p {
+                font-size: 0.9rem;
+            }
+            .side-menu {
+                width: 250px; /* Slightly smaller on small screens */
+                right: -270px;
+            }
+            section {
+                padding: 1.5rem;
+            }
+            section h2 {
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+            }
+            .kra-image {
+                max-width: 95%; /* Adjust for smaller screens */
+            }
+            .social-links {
+                justify-content: center;
+            }
         }
     </style>
     <script>
@@ -354,15 +435,33 @@
                 return;
             }
 
-            const message = `Foreign WhatsApp Number Order:%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ACountry: ${countryText}%0A%0AConditions to maintain the number:%0A- Add profile photo%0A- No spam%0A- Use two WhatsApp apps`;
-            window.open(`https://wa.me/254748340864?text=${message}`, '_blank');
-            alert('Order submitted successfully! We will contact you back in less than 15 minutes.');
+            // Constructing a more formal WhatsApp message
+            const message = `Service Request: Foreign WhatsApp Number Order\n\n` +
+                            `Details:\n` +
+                            `Name: ${name}\n` +
+                            `Email: ${email}\n` +
+                            `Phone: ${phone}\n` +
+                            `Desired Country: ${countryText}\n\n` +
+                            `Important: Please note that to maintain the virtual number, you will need to:\n` +
+                            `- Add a profile photo.\n` +
+                            `- Avoid spamming.\n` +
+                            `- Utilize two separate WhatsApp applications (Business & Messenger).`;
+            
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            window.open(`https://wa.me/254748340864?text=${encodedMessage}`, '_blank');
+            alert('Your order has been submitted successfully. We will contact you within 15 minutes to finalize the process.');
             document.getElementById('order-form').reset();
         }
 
         function serviceContact(serviceType) {
-            const message = `Service Inquiry:%0AInterested in: ${serviceType}%0APlease provide more details about your inquiry.`;
-            window.open(`https://wa.me/254748340864?text=${message}`, '_blank');
+            const message = `Inquiry regarding: ${serviceType}\n\n` +
+                            `Dear TOOSIIlink Team,\n\n` +
+                            `I am writing to inquire about your "${serviceType}" service. Could you please provide more details or guidance on how to proceed?\n\n` +
+                            `Thank you.`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/254748340864?text=${encodedMessage}`, '_blank');
             closeSideMenu();
         }
 
@@ -380,8 +479,8 @@
         <div class="header-content">
             <div class="header-text">
                 <h1 class="text-3xl font-bold">TOOSIIlink Company</h1>
-                <p class="mt-2 text-yellow-200">Digital Solutions & Foreign WhatsApp Numbers</p>
-                <p class="text-sm text-yellow-300">CEO: TOOSII KE | Numbers at KES 100 | Online services from KES 150</p>
+                <p class="mt-2 text-blue-200">Your Premier Partner in Digital Solutions & Global Connectivity</p>
+                <p class="text-sm text-blue-300">CEO: TOOSII KE | Virtual Numbers from KES 100 | Online Services from KES 150</p>
             </div>
             <div class="hamburger-icon" onclick="openSideMenu()">
                 <i class="fas fa-bars"></i>
@@ -391,8 +490,8 @@
 
     <div id="sideMenu" class="side-menu">
         <span class="close-menu-button" onclick="closeSideMenu()">&times;</span>
-        <h3>Our Services (Contact via WhatsApp)</h3>
-        <div class="space-y-2">
+        <h3>Our Comprehensive Services</h3>
+        <div class="space-y-3">
             <button onclick="serviceContact('New KRA PIN Application')" class="whatsapp-service-button">
                 <i class="fab fa-whatsapp"></i> New KRA PIN Application
             </button>
@@ -402,14 +501,14 @@
             <button onclick="serviceContact('Removing KRA Penalty')" class="whatsapp-service-button">
                 <i class="fab fa-whatsapp"></i> Removing KRA Penalty
             </button>
-            <button onclick="serviceContact('Retrieval Lost KRA PIN')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Retrieval of Lost KRA PIN')" class="whatsapp-service-button">
                 <i class="fab fa-whatsapp"></i> Retrieval Lost KRA PIN
             </button>
             <button onclick="serviceContact('Change KRA Email and Password')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> Change KRA Email/Password
+                <i class="fab fa-whatsapp"></i> KRA Email/Password Update
             </button>
             <button onclick="serviceContact('HELB Loan Appeal')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> HELB Loan Appeal
+                <i class="fab fa-whatsapp"></i> HELB Loan Appeal Assistance
             </button>
             <button onclick="serviceContact('HELB First Time Application')" class="whatsapp-service-button">
                 <i class="fab fa-whatsapp"></i> HELB First Time Application
@@ -418,117 +517,127 @@
                 <i class="fab fa-whatsapp"></i> HELB Portal Update
             </button>
             <button onclick="serviceContact('CRB Clearance')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> CRB Clearance
+                <i class="fab fa-whatsapp"></i> CRB Clearance Services
             </button>
-            <button onclick="serviceContact('Editing Documents')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> Editing Documents
+            <button onclick="serviceContact('Document Editing & Formatting')" class="whatsapp-service-button">
+                <i class="fab fa-whatsapp"></i> Document Editing & Formatting
             </button>
-            <button onclick="serviceContact('CV Writing and Editing')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> CV Writing & Editing
+            <button onclick="serviceContact('Professional CV Writing')" class="whatsapp-service-button">
+                <i class="fab fa-whatsapp"></i> Professional CV Writing
             </button>
-            <button onclick="serviceContact('Job Application Letter')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> Job Application Letter
+            <button onclick="serviceContact('Job Application Letter Drafting')" class="whatsapp-service-button">
+                <i class="fab fa-whatsapp"></i> Job Application Letter Drafting
             </button>
-            <button onclick="serviceContact('Good Conduct Application Certificate')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> Good Conduct Application
+            <button onclick="serviceContact('Good Conduct Certificate Application')" class="whatsapp-service-button">
+                <i class="fab fa-whatsapp"></i> Good Conduct Certificate App
             </button>
             <button onclick="serviceContact('NHIF Application')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> NHIF Application
+                <i class="fab fa-whatsapp"></i> NHIF Application Assistance
             </button>
             <button onclick="serviceContact('NSSF Application')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> NSSF Application
+                <i class="fab fa-whatsapp"></i> NSSF Application Assistance
             </button>
-            <button onclick="serviceContact('DL Renewal')" class="whatsapp-service-button">
-                <i class="fab fa-whatsapp"></i> DL Renewal
+            <button onclick="serviceContact('Driving License Renewal')" class="whatsapp-service-button">
+                <i class="fab fa-whatsapp"></i> Driving License Renewal
             </button>
         </div>
     </div>
 
-    <main class="max-w-4xl mx-auto p-6 space-y-12">
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-10">
+
         <section>
-            <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">About TOOSIIlink Company</h2>
-            <p><strong>TOOSIIlink Company</strong> is your trusted partner for secure and rapid acquisition of foreign WhatsApp numbers, ideal for international business, regional access, or enhanced privacy. We also specialize in a comprehensive suite of online cyber services, including KRA compliance, HELB support, financial clearances, and professional documentation assistance for individuals and businesses across Kenya. Our commitment is to provide reliable, efficient, and 100% verified solutions, earning the trust of thousands.</p>
+            <h2>About TOOSIIlink Company</h2>
+            <p><strong>TOOSIIlink Company</strong> stands as a leading provider of secure and efficient digital solutions, specializing in the acquisition of international virtual WhatsApp numbers and comprehensive online cyber services. We empower individuals and businesses across Kenya by facilitating seamless KRA compliance, HELB support, financial clearances, and expert document preparation.</p>
+            <p>Our commitment to delivering reliable, verified, and timely solutions has garnered the trust of thousands. We pride ourselves on precision and client satisfaction.</p>
             <p class="text-center mt-6 text-lg font-semibold text-gray-700">
-                Discover our full range of services by clicking the <i class="fas fa-bars"></i> menu icon in the top right!
+                Explore our full spectrum of professional services by clicking the <i class="fas fa-bars"></i> menu icon located in the top right corner.
             </p>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">M-Pesa Payments</h2>
-            <button id="showMpesaButton">Show M-Pesa Payment Instructions</button>
+            <h2>Streamlined KRA Compliance Solutions</h2>
+            <p>TOOSIIlink Company offers dedicated expertise in navigating Kenya Revenue Authority (KRA) processes. Our services are designed to simplify your tax obligations, ensuring accuracy and adherence to all regulatory requirements.</p>
+            <div class="kra-image-container">
+                <img src="YOUR_IMAGE_PUBLIC_URL_HERE" alt="Professional working on a laptop, symbolizing KRA tax services and digital efficiency" class="kra-image">
+            </div>
+            <p class="mt-4">Whether you require assistance with new KRA PIN applications, filing accurate nil returns, or resolving existing penalties, our experienced team provides diligent support. Entrust us with the complexities of KRA compliance so you can focus on your core activities.</p>
+            <p>For a detailed overview of our KRA-specific services, please refer to the "Our Comprehensive Services" menu accessible via the <i class="fas fa-bars"></i> icon.</p>
+        </section>
+
+        <section>
+            <h2>M-Pesa Payment Instructions</h2>
+            <p>For your convenience, we accept secure payments via M-Pesa. Please follow the instructions below to complete your transaction efficiently.</p>
+            <button id="showMpesaButton">Show M-Pesa Payment Details</button>
 
             <div id="mpesaInstructions" style="display: none;">
-                <h3>How to Pay via M-Pesa (Send Money)</h3>
-                <p>We accept payments securely through M-Pesa. Please follow these simple steps to complete your transaction:</p>
+                <h3>M-Pesa 'Send Money' Procedure</h3>
+                <ol>
+                    <li>Navigate to your <strong>M-Pesa Menu</strong> on your mobile device.</li>
+                    <li>Select the <strong>"Send Money"</strong> option.</li>
+                    <li>Enter the recipient's mobile number: <strong><span style="color: #2c3e50; font-weight: 600;">0748340864</span></strong></li>
+                    <li>Input the exact amount corresponding to your service.</li>
+                    <li>Enter your M-Pesa PIN to authorize and confirm the transaction.</li>
+                </ol>
 
-                <h4>Steps to Send Money via M-Pesa:</h4>
-                <ul class="list-disc">
-                    <li><strong>Go to M-Pesa Menu</strong> on your mobile phone.</li>
-                    <li>Select <strong>"Send Money"</strong>.</li>
-                    <li>Enter Recipient's Number: <strong><span style="color: #1a237e; font-weight: 600;">0748340864</span></strong></li>
-                    <li>Enter the exact Amount for your service (e.g., KES 200).</li>
-                    <li>Enter your M-Pesa PIN and confirm the transaction.</li>
-                </ul>
-
-                <p class="font-bold text-red-600">
-                    IMPORTANT: After completing your payment, please promptly send the **M-Pesa confirmation code (MPESA REF)**
-                    and details of your service request or order to us via WhatsApp for immediate processing.
+                <p class="font-bold text-red-600 mt-5">
+                    Crucial: Following your payment, it is imperative to immediately forward the <strong>M-Pesa confirmation code (MPESA REF)</strong>
+                    and a clear description of your service request to our WhatsApp contact for prompt processing.
                 </p>
-                <a href="https://wa.me/254748340864" target="_blank" class="whatsapp-contact-button">Contact Us on WhatsApp</a>
-                <p class="mt-4">We will confirm your payment and process your request upon verification.</p>
+                <a href="https://wa.me/254748340864?text=Hello%20TOOSIIlink%20Team%2C%20I%20have%20made%20a%20payment%20via%20M-Pesa.%20My%20M-Pesa%20code%20is%20%5BMPESA%20CODE%5D%20and%20I%20am%20requesting%20for%20%5BSERVICE%20DETAILS%5D." target="_blank" class="whatsapp-contact-button">Send M-Pesa Confirmation via WhatsApp</a>
+                <p class="mt-4 text-center text-sm text-gray-600">Your request will be processed immediately upon payment verification.</p>
             </div>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Virtual Number Acquisition Process</h2>
-            <p class="mb-4">To ensure a smooth activation and reliable service for your foreign WhatsApp number, please adhere to the following requirements:</p>
-            <ul class="list-disc list-inside">
-                <li>You must have *two separate WhatsApp applications* installed: WhatsApp Business and WhatsApp Messenger, to manage multiple numbers effectively.</li>
-                <li>Upon successful order, numbers are typically approved and ready for use in **less than 30 minutes**.</li>
-                <li>Each virtual foreign WhatsApp number is available at a competitive rate of **KES 100**.</li>
+            <h2>Virtual Number Acquisition Process</h2>
+            <p>To ensure seamless activation and reliable service for your international virtual WhatsApp number, please adhere to the following procedural requirements:</p>
+            <ul>
+                <li>You are required to have <strong>two distinct WhatsApp applications</strong> installed on your device: WhatsApp Business and WhatsApp Messenger, to facilitate effective management of multiple numbers.</li>
+                <li>Upon successful order placement and verification, numbers are typically activated and ready for use within <strong>less than 30 minutes</strong>.</li>
+                <li>Each virtual international WhatsApp number is available at a competitive rate of <strong>KES 100</strong>.</li>
             </ul>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Usage Guidelines for Virtual Numbers</h2>
-            <p class="mb-4">To maintain the integrity and longevity of your foreign WhatsApp number, kindly observe these crucial conditions:</p>
-            <ul class="list-disc list-inside">
-                <li>You *must add a profile photo and complete your profile information* immediately upon activation.</li>
-                <li>Strictly **avoid sending spam messages** or engaging in any unsolicited communication.</li>
-                <li>Refrain from messaging new contacts within the **first 20 minutes** of activation.</li>
-                <li>It is imperative to <b>add an email address and complete your profile</b> as soon as the number is activated.</li>
-                <li>If you receive an incoming message from a new contact, <b>save their number immediately</b> to your device.</li>
-                <li>Communicate primarily with saved contacts to reduce the risk of account suspension.</li>
-                <li>Avoid sending messages to a <b>large number of individuals concurrently</b> to prevent detection as spam.</li>
+            <h2>Operational Guidelines for Virtual Numbers</h2>
+            <p>To preserve the integrity and long-term viability of your international WhatsApp number, kindly observe these critical usage guidelines:</p>
+            <ul>
+                <li>It is mandatory to <strong>upload a profile photo and complete your profile information</strong> immediately upon number activation.</li>
+                <li>Strictly <strong>refrain from sending spam messages</strong> or engaging in any form of unsolicited mass communication.</li>
+                <li>Avoid initiating communication with new contacts within the <strong>initial 20 minutes</strong> following activation.</li>
+                <li>You must <strong>add an email address and complete your profile details</strong> promptly after the number is active.</li>
+                <li>Should you receive an incoming message from an unsaved contact, it is crucial to <strong>save their number to your device immediately</strong>.</li>
+                <li>Prioritize communication with saved contacts to mitigate the risk of account suspension.</li>
+                <li>Do not send messages to a <strong>large volume of individuals concurrently</strong>, as this may be flagged as spamming activity.</li>
             </ul>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Available Countries for Virtual Numbers</h2>
-            <p class="mb-4">We offer virtual WhatsApp numbers from a diverse range of countries to meet your global communication needs:</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/ng.png" alt="Nigeria Flag"> Nigeria (+234)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/ke.png" alt="Kenya Flag"> Kenya (+254)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/pk.png" alt="Pakistan Flag"> Pakistan (+92)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/ae.png" alt="UAE Flag"> UAE (+971)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/eg.png" alt="Egypt Flag"> Egypt (+20)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/gh.png" alt="Ghana Flag"> Ghana (+233)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/om.png" alt="Oman Flag"> Oman (+968)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/af.png" alt="Afghanistan Flag"> Afghanistan (+93)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/tj.png" alt="Tajikistan Flag"> Tajikistan (+992)</div>
-                <div class="flex items-center"><img class="flag" src="https://flagcdn.com/w20/in.png" alt="India Flag"> India (+91)</div>
+            <h2>Available Countries for Virtual Numbers</h2>
+            <p>We provide virtual WhatsApp numbers from a diverse portfolio of countries, catering to your global communication requirements:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/ng.png" alt="Nigeria Flag"> Nigeria (+234)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/ke.png" alt="Kenya Flag"> Kenya (+254)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/pk.png" alt="Pakistan Flag"> Pakistan (+92)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/ae.png" alt="UAE Flag"> UAE (+971)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/eg.png" alt="Egypt Flag"> Egypt (+20)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/gh.png" alt="Ghana Flag"> Ghana (+233)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/om.png" alt="Oman Flag"> Oman (+968)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/af.png" alt="Afghanistan Flag"> Afghanistan (+93)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/tj.png" alt="Tajikistan Flag"> Tajikistan (+992)</div>
+                <div class="flex items-center text-gray-700"><img class="flag" src="https://flagcdn.com/w20/in.png" alt="India Flag"> India (+91)</div>
             </div>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Place Your Order</h2>
-            <p class="mb-6">Ready to get your foreign WhatsApp number? Please fill out the form below, and we'll process your request swiftly. We aim to contact you within 15 minutes of your submission.</p>
-            <form id="order-form" onsubmit="submitForm(event)" class="space-y-5">
-                <input id="name" type="text" placeholder="Your Full Name" class="w-full p-3 border rounded-lg" required>
-                <input id="email" type="email" placeholder="Email Address" class="w-full p-3 border rounded-lg" required>
-                <input id="phone" type="tel" placeholder="Your Kenyan Phone (e.g., 07XXXXXXXX or +254XXXXXXXXX)" class="w-full p-3 border rounded-lg" required>
-                <select id="country" class="w-full p-3 border rounded-lg" required>
-                    <option value="">Select Desired Country for Number</option>
+            <h2>Initiate Your Virtual Number Order</h2>
+            <p class="mb-6">To proceed with your foreign WhatsApp number acquisition, please complete the form below. Our team is committed to processing your request and contacting you within 15 minutes of submission.</p>
+            <form id="order-form" onsubmit="submitForm(event)" class="space-y-6">
+                <input id="name" type="text" placeholder="Your Full Name" required>
+                <input id="email" type="email" placeholder="Your Professional Email Address" required>
+                <input id="phone" type="tel" placeholder="Your Kenyan Phone Number (e.g., 07XXXXXXXX or +254XXXXXXXXX)" required>
+                <select id="country" required>
+                    <option value="">Select Desired Country for Virtual Number</option>
                     <option>Nigeria (+234)</option>
                     <option>Kenya (+254)</option>
                     <option>Pakistan (+92)</option>
@@ -540,49 +649,50 @@
                     <option>Tajikistan (+992)</option>
                     <option>India (+91)</option>
                 </select>
-                <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg shadow-md">Submit Order</button>
+                <button type="submit">Submit Order</button>
             </form>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Contact Us</h2>
-            <p class="mb-4">Should you experience any delays with your order or have urgent inquiries, please do not hesitate to contact our Company Manager directly:</p>
-            <ul class="mt-4 space-y-2 contact-list">
-                <li><strong>Kenyan Support Number:</strong> <a href="tel:+254748340864" class="text-blue-600 hover:underline">+254 748340864</a></li>
-                <li><strong>International Support Number:</strong> <a href="tel:+92722733096" class="text-blue-600 hover:underline">+92 722733096</a></li>
-                <li><strong>Direct Line for Delays (Company Manager):</strong> <a href="tel:+254748340864" class="text-blue-600 hover:underline">+254748340864</a></li>
+            <h2>Contact Our Team</h2>
+            <p class="mb-4">For urgent inquiries, order status updates, or direct assistance, please contact our Company Manager via the following channels:</p>
+            <ul class="mt-4 space-y-3 contact-list">
+                <li><strong>Kenya Support:</strong> <a href="tel:+254748340864"><i class="fas fa-phone-alt"></i> +254 748340864</a></li>
+                <li><strong>International Support:</strong> <a href="tel:+92722733096"><i class="fas fa-phone-alt"></i> +92 722733096</a></li>
+                <li><strong>Direct Line (Company Manager - for critical issues):</strong> <a href="tel:+254748340864"><i class="fas fa-user-tie"></i> +254 748340864</a></li>
             </ul>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Connect With Us</h2>
-            <p class="mb-4">Stay updated with our latest services and announcements by joining our communities:</p>
-            <div class="flex flex-wrap space-x-6 justify-center sm:justify-start social-links">
-                <a href="https://wa.link/bgiiof" target="_blank" class="text-blue-600 hover:underline">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Channel
+            <h2>Connect With TOOSIIlink</h2>
+            <p class="mb-4">Stay informed and engage with our community. Join our official channels for updates, announcements, and support:</p>
+            <div class="flex flex-wrap gap-4 justify-center sm:justify-start social-links">
+                <a href="https://wa.link/bgiiof" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Official WhatsApp Channel
                 </a>
-                <a href="https://wa.link/bgiiof" target="_blank" class="text-blue-600 hover:underline">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Group (Old)
+                <a href="https://wa.link/bgiiof" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Community (Legacy)
                 </a>
-                <a href="https://chat.whatsapp.com/HyGPTS6pZA17N1rPNqfHOU" target="_blank" class="text-blue-600 hover:underline">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Group (New)
+                <a href="https://chat.whatsapp.com/HyGPTS6pZA17N1rPNqfHOU" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Community (New)
                 </a>
             </div>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 TOOSIIlink Company | Your Partner in Digital Solutions</p>
+        <p>&copy; 2025 TOOSIIlink Company | Empowering Your Digital Journey</p>
     </footer>
 
     <script>
         document.getElementById('showMpesaButton').addEventListener('click', function() {
             var mpesaInstructions = document.getElementById('mpesaInstructions');
-            if (mpesaInstructions.style.display === 'none') {
+            if (mpesaInstructions.style.display === 'none' || mpesaInstructions.style.display === '') {
                 mpesaInstructions.style.display = 'block';
-                this.textContent = 'Hide M-Pesa Payment Instructions';
+                this.textContent = 'Hide M-Pesa Payment Details';
             } else {
                 mpesaInstructions.style.display = 'none';
-                this.textContent = 'Show M-Pesa Payment Instructions';
+                this.textContent = 'Show M-Pesa Payment Details';
             }
         });
     </script>
