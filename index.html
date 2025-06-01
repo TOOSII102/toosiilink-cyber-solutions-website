@@ -321,7 +321,13 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-right: 12px; /* Added margin for spacing between links */
         }
+
+        .social-links a:last-child {
+            margin-right: 0; /* Remove margin from the last link */
+        }
+
 
         .social-links a:hover {
             background-color: #c5e1a5; /* Lighter green on hover */
@@ -551,12 +557,15 @@
         <section>
             <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Connect With Us</h2>
             <p class="mb-4">Stay updated with our latest services and announcements by joining our communities:</p>
-            <div class="flex space-x-6 justify-center sm:justify-start social-links">
+            <div class="flex flex-wrap space-x-6 justify-center sm:justify-start social-links">
                 <a href="https://wa.link/bgiiof" target="_blank" class="text-blue-600 hover:underline">
                     <i class="fab fa-whatsapp"></i> WhatsApp Channel
                 </a>
                 <a href="https://wa.link/bgiiof" target="_blank" class="text-blue-600 hover:underline">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Group
+                    <i class="fab fa-whatsapp"></i> WhatsApp Group (Old)
+                </a>
+                <a href="https://chat.whatsapp.com/HyGPTS6pZA17N1rPNqfHOU" target="_blank" class="text-blue-600 hover:underline">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Group (New)
                 </a>
             </div>
         </section>
