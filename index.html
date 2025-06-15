@@ -21,7 +21,7 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden; /* Prevent horizontal scroll issues */
-            visibility: hidden; /* Hide content until fully loaded */
+            visibility: hidden; /* IMPORTANT: Hide content until fully loaded */
             opacity: 0;
             transition: visibility 0s, opacity 0.5s ease-in-out; /* Smooth transition for content reveal */
         }
@@ -712,7 +712,7 @@
         <section>
             <h2>About TOOSIIlink Company</h2>
             <p><strong>TOOSIIlink Company</strong> stands as a leading provider of secure and efficient digital solutions, specializing in the acquisition of international virtual WhatsApp numbers and comprehensive online cyber services. We empower individuals and businesses across Kenya by facilitating seamless KRA compliance, HELB support, financial clearances, and expert document preparation.</p>
-            <p>Our commitment to delivering reliable, verified, and timely solutions has garnered the trust of thousands. We pride ourselves on precision and client satisfaction.</p>
+            <p class="mt-4">Our commitment to delivering reliable, verified, and timely solutions has garnered the trust of thousands. We pride ourselves on precision and client satisfaction.</p>
             <p class="text-center mt-6 text-lg font-semibold text-gray-700">
                 Explore our full spectrum of professional services by clicking the <i class="fas fa-bars"></i> menu icon located in the top right corner.
             </p>
@@ -868,7 +868,7 @@
         function updateProgress(value) {
             currentProgress = value;
             loadingPercentageElement.textContent = `${currentProgress}%`;
-            // If you add a progress bar, update its width here:
+            // If you add a progress bar, uncomment this and the HTML for it:
             // const progressBar = document.getElementById('progressBar');
             // if (progressBar) progressBar.style.width = `${currentProgress}%`;
         }
