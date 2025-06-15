@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TOOSIIlink Company - Premier Digital Solutions & Global Virtual Numbers</title>
-    <!-- Tailwind CSS CDN for utility-first styling -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts for professional typography -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /*
@@ -222,6 +219,40 @@
             margin-right: 15px;
             font-size: 1.3rem;
         }
+
+        /* New style for the "Sign Up" button in the side menu */
+        .side-menu .signup-button {
+            display: flex;
+            align-items: center;
+            background-color: #e74c3c; /* Red color for emphasis */
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.15rem;
+            text-decoration: none;
+            margin-top: 20px; /* Space it out from other buttons */
+            margin-bottom: 15px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            justify-content: center; /* Center text and icon */
+        }
+
+        .side-menu .signup-button:hover {
+            background-color: #c0392b; /* Darker red on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        .side-menu .signup-button i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+
 
         /*
         --------------------------------------------------------------
@@ -456,7 +487,7 @@
 
         /*
         --------------------------------------------------------------
-        Registration Link
+        Registration Link (in About section)
         --------------------------------------------------------------
         */
         .register-link {
@@ -605,18 +636,14 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <!-- Loading Screen -->
     <div id="loading-screen">
         <span id="loading-percentage">0%</span>
     </div>
 
-    <!-- Matrix Rain Background Canvas -->
     <canvas id="matrixCanvas"></canvas>
 
-    <!-- Header Section -->
     <header>
         <div class="header-content">
-            <!-- Removed the img tag for the logo -->
             <div class="header-text">
                 <h1 class="text-3xl font-bold">TOOSIIlink Company</h1>
                 <p class="mt-2 text-blue-200">Your Premier Partner in Digital Solutions & Global Connectivity</p>
@@ -628,7 +655,6 @@
         </div>
     </header>
 
-    <!-- Side Navigation Menu -->
     <div id="sideMenu" class="side-menu" role="navigation">
         <span class="close-menu-button" onclick="closeSideMenu()" aria-label="Close navigation menu">&times;</span>
         <h3>Our Comprehensive Services</h3>
@@ -682,6 +708,10 @@
                 <i class="fab fa-whatsapp"></i> Driving License Renewal
             </button>
         </div>
+
+        <a href="https://www.safibets.com?ref=68147afd0fbcd7e0bca51798" target="_blank" rel="noopener noreferrer" class="signup-button" onclick="closeSideMenu()">
+            <i class="fas fa-user-plus"></i> Sign Up / Register Now!
+        </a>
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-8 space-y-10">
@@ -754,7 +784,13 @@
                 <li>Should you receive an incoming message from an unsaved contact, it is crucial to <strong>save their number to your device immediately</strong>.</li>
                 <li>Prioritize communication with saved contacts to mitigate the risk of account suspension.</li>
                 <li>Do not send messages to a <strong>large volume of individuals concurrently</strong>, as this may be flagged as spamming activity.</li>
-                <li>... (rest of the operational guidelines)</li>
+                <li>Limit your initial communication to no more than **five new contacts** within the first hour of activation.</li>
+                <li>Refrain from joining more than **one group** within the first 24 hours of number activation.</li>
+                <li>Ensure a **stable internet connection** at all times to maintain number activity.</li>
+                <li>The virtual number is solely for **WhatsApp communication**; it does not support SMS or voice calls outside of WhatsApp.</li>
+                <li>For optimal performance, ensure your WhatsApp application is **regularly updated** to the latest version.</li>
+                <li>In case of any issues or unexpected behavior, **immediately contact our support team** for assistance.</li>
+                <li>Any violation of these guidelines may lead to the **suspension or termination** of your virtual number without refund.</li>
             </ul>
         </section>
 
