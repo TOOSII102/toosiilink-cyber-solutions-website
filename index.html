@@ -16,6 +16,19 @@
             background-color: #f0f2f5; /* Light grey for a clean backdrop */
             color: #333;
             line-height: 1.6;
+            overflow: hidden; /* Hide scrollbars that might appear due to canvas */
+        }
+
+        /* Styles for the Matrix canvas - now subtle and transparent */
+        #matrixCanvas {
+            position: fixed; /* Use fixed to cover the entire viewport regardless of scroll */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; /* Place behind all other content */
+            display: block;
+            background-color: transparent; /* Make canvas background transparent */
         }
 
         h1, h2, h3, h4 {
@@ -32,6 +45,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative; /* Ensure header stays above canvas */
+            z-index: 10; /* Higher z-index than canvas */
         }
 
         .header-content {
@@ -146,6 +161,8 @@
         /* Main Content Sections */
         main {
             padding: 2.5rem 1.5rem; /* Generous padding */
+            position: relative; /* Ensure main content sits above canvas */
+            z-index: 5; /* Higher than canvas but lower than header/side menu */
         }
 
         section {
@@ -373,16 +390,16 @@
 
         /* Specific style for the new registration link */
         .register-link {
-            background-color: #e74c3c !important; /* Red for urgency */
-            color: white !important;
-            font-weight: 700 !important;
-            padding: 12px 25px !important;
+            background-color: #e74c3c;
+            color: white;
+            font-weight: 700;
+            padding: 12px 25px;
         }
 
         .register-link:hover {
-            background-color: #c0392b !important; /* Darker red on hover */
+            background-color: #c0392b;
             transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
 
@@ -393,6 +410,8 @@
             text-align: center;
             padding: 1.5rem 0;
             box-shadow: 0 -3px 8px rgba(0,0,0,0.1);
+            position: relative; /* Ensure footer stays above canvas */
+            z-index: 10; /* Higher z-index than canvas */
         }
 
         /* Responsive Adjustments */
@@ -418,68 +437,94 @@
                 justify-content: center;
             }
         }
-    </style>
-    <script>
-        function submitForm(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const country = document.getElementById('country');
-            const countryText = country.options[country.selectedIndex].text;
+        /* Custom Modal Styling */
+        .custom-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000; /* Ensure it's on top of everything */
+        }
 
-            const phoneRegex = /^(?:\+254|0|7)\d{9}$/;
-            if (!phoneRegex.test(phone)) {
-                alert('Please enter a valid Kenyan phone number (e.g., 07XXXXXXXX, 7XXXXXXXX, or +254XXXXXXXXX).');
-                return;
+        .custom-modal-content {
+            background: #ffffff;
+            padding: 25px 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 90%;
+            min-width: 300px;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            animation: fadeInScale 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
             }
-
-            // Constructing a more formal WhatsApp message
-            const message = `Service Request: Foreign WhatsApp Number Order\n\n` +
-                            `Details:\n` +
-                            `Name: ${name}\n` +
-                            `Email: ${email}\n` +
-                            `Phone: ${phone}\n` +
-                            `Desired Country: ${countryText}\n\n` +
-                            `Important: Please note that to maintain the virtual number, you will need to:\n` +
-                            `- Add a profile photo.\n` +
-                            `- Avoid spamming.\n` +
-                            `- Utilize two separate WhatsApp applications (Business & Messenger).`;
-            
-            // Encode the message for URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            window.open(`https://wa.me/254748340864?text=${encodedMessage}`, '_blank');
-            alert('Your order has been submitted successfully. We will contact you within 15 minutes to finalize the process.');
-            document.getElementById('order-form').reset();
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
-        function serviceContact(serviceType) {
-            const message = `Inquiry regarding: ${serviceType}\n\n` +
-                            `Dear TOOSIIlink Team,\n\n` +
-                            `I am writing to inquire about your "${serviceType}" service. Could you please provide more details or guidance on how to proceed?\n\n` +
-                            `Thank you.`;
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/254748340864?text=${encodedMessage}`, '_blank');
-            closeSideMenu();
+        .custom-modal-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #333;
         }
 
-        function openSideMenu() {
-            document.getElementById('sideMenu').classList.add('active');
+        .custom-modal-content button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
         }
 
-        function closeSideMenu() {
-            document.getElementById('sideMenu').classList.remove('active');
+        .custom-modal-content button:hover {
+            background-color: #2980b9;
         }
-    </script>
+
+        /* Loading Spinner */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #ffffff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
+    <!-- The Matrix background canvas -->
+    <canvas id="matrixCanvas"></canvas>
+
     <header>
         <div class="header-content">
             <div class="header-text">
                 <h1 class="text-3xl font-bold">TOOSIIlink Company</h1>
                 <p class="mt-2 text-blue-200">Your Premier Partner in Digital Solutions & Global Connectivity</p>
-                <p class="text-sm text-blue-300">CEO: TOOSII KE | Virtual Numbers from KES 100 | Online Services from KES 150</p>
+                <p class="text-sm text-blue-300">CEO: TOOSII KE | Virtual Numbers from KES 50 | Online Services from KES 150</p>
             </div>
             <div class="hamburger-icon" onclick="openSideMenu()">
                 <i class="fas fa-bars"></i>
@@ -598,7 +643,7 @@
             <ul>
                 <li>You are required to have <strong>two distinct WhatsApp applications</strong> installed on your device: WhatsApp Business and WhatsApp Messenger, to facilitate effective management of multiple numbers.</li>
                 <li>Upon successful order placement and verification, numbers are typically activated and ready for use within <strong>less than 30 minutes</strong>.</li>
-                <li>Each virtual international WhatsApp number is available at a competitive rate of <strong>KES 100</strong>.</li>
+                <li>Each virtual international WhatsApp number is available at a competitive rate of <strong>KES 50</strong>.</li>
             </ul>
         </section>
 
@@ -653,7 +698,9 @@
                     <option>Tajikistan (+992)</option>
                     <option>India (+91)</option>
                 </select>
-                <button type="submit">Submit Order</button>
+                <button type="submit" id="submitButton">
+                    Submit Order
+                </button>
             </form>
         </section>
 
@@ -689,6 +736,37 @@
     </footer>
 
     <script>
+        // Function to display a custom modal
+        function showCustomModal(message, type = 'info') {
+            const modalOverlay = document.createElement('div');
+            modalOverlay.className = 'custom-modal-overlay';
+
+            const modalContent = document.createElement('div');
+            modalContent.className = 'custom-modal-content';
+
+            // Add an icon based on message type (optional, but good for UX)
+            let iconHtml = '';
+            if (type === 'error') {
+                iconHtml = '<i class="fas fa-exclamation-circle text-red-500 mb-3 text-3xl"></i>';
+                modalContent.style.borderColor = '#ef4444'; // Red border for error
+            } else if (type === 'success') {
+                iconHtml = '<i class="fas fa-check-circle text-green-500 mb-3 text-3xl"></i>';
+                modalContent.style.borderColor = '#22c55e'; // Green border for success
+            } else {
+                iconHtml = '<i class="fas fa-info-circle text-blue-500 mb-3 text-3xl"></i>';
+                modalContent.style.borderColor = '#3b82f6'; // Blue border for info
+            }
+
+            modalContent.innerHTML = `
+                ${iconHtml}
+                <p>${message}</p>
+                <button onclick="this.closest('.custom-modal-overlay').remove()">OK</button>
+            `;
+            modalOverlay.appendChild(modalContent);
+            document.body.appendChild(modalOverlay);
+        }
+
+        // M-Pesa button functionality
         document.getElementById('showMpesaButton').addEventListener('click', function() {
             var mpesaInstructions = document.getElementById('mpesaInstructions');
             if (mpesaInstructions.style.display === 'none' || mpesaInstructions.style.display === '') {
@@ -699,6 +777,129 @@
                 this.textContent = 'Show M-Pesa Payment Details';
             }
         });
+
+        async function submitForm(event) {
+            event.preventDefault();
+
+            const submitButton = document.getElementById('submitButton');
+            const originalButtonText = submitButton.innerHTML; // Store original button content
+
+            // Show loading spinner and disable button
+            submitButton.innerHTML = '<span class="spinner"></span> Submitting...';
+            submitButton.disabled = true;
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const countrySelect = document.getElementById('country');
+            const countryText = countrySelect.options[countrySelect.selectedIndex].text;
+
+            const phoneRegex = /^(?:\+254|0|7)\d{9}$/;
+            if (!phoneRegex.test(phone)) {
+                showCustomModal('Please enter a valid Kenyan phone number (e.g., 07XXXXXXXX, 7XXXXXXXX, or +254XXXXXXXXX).', 'error');
+                // Reset button state
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+                return;
+            }
+
+            // Constructing a more formal WhatsApp message
+            const message = `Service Request: Foreign WhatsApp Number Order\n\n` +
+                            `Details:\n` +
+                            `Name: ${name}\n` +
+                            `Email: ${email}\n` +
+                            `Phone: ${phone}\n` +
+                            `Desired Country: ${countryText}\n\n` +
+                            `Important: Please note that to maintain the virtual number, you will need to:\n` +
+                            `- Add a profile photo.\n` +
+                            `- Avoid spamming.\n` +
+                            `- Utilize two separate WhatsApp applications (Business & Messenger).`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Simulate a network request delay (remove in production)
+            await new Promise(resolve => setTimeout(resolve, 1500)); 
+
+            window.open(`https://wa.me/254748340864?text=${encodedMessage}`, '_blank');
+            showCustomModal('Your order has been submitted successfully. We will contact you within 15 minutes to finalize the process.', 'success');
+            document.getElementById('order-form').reset();
+
+            // Reset button state after successful submission
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+        }
+
+        function serviceContact(serviceType) {
+            const message = `Inquiry regarding: ${serviceType}\n\n` +
+                                `Dear TOOSIIlink Team,\n\n` +
+                                `I am writing to inquire about your "${serviceType}" service. Could you please provide more details or guidance on how to proceed?\n\n` +
+                                `Thank you.`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/254748340864?text=${encodedMessage}`, '_blank');
+            closeSideMenu();
+        }
+
+        function openSideMenu() {
+            document.getElementById('sideMenu').classList.add('active');
+        }
+
+        function closeSideMenu() {
+            document.getElementById('sideMenu').classList.remove('active');
+        }
+
+        // Matrix background script
+        let canvas;
+        let ctx;
+        let charactersArray;
+        let columns;
+        let drops;
+        const fontSize = 16; 
+
+        function setCanvasDimensions() {
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                columns = Math.floor(canvas.width / fontSize);
+                drops = Array(columns).fill(1);
+            }
+        }
+
+        function animate() {
+            if (!ctx) return;
+
+            ctx.fillStyle = 'rgba(240, 242, 245, 0.03)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.font = `${fontSize}px 'Roboto', sans-serif`; 
+            ctx.fillStyle = 'rgba(52, 152, 219, 0.1)';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = charactersArray[Math.floor(Math.random() * charactersArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.985) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.onload = function() {
+            canvas = document.getElementById('matrixCanvas');
+            if (canvas) {
+                ctx = canvas.getContext('2d');
+                const characters = '01'; // Limiting to binary for a professional look
+                charactersArray = characters.split('');
+
+                setCanvasDimensions(); // Set initial dimensions
+                window.addEventListener('resize', setCanvasDimensions); // Add resize listener
+
+                animate(); // Start the animation loop
+            } else {
+                console.error("Canvas element with ID 'matrixCanvas' not found.");
+            }
+        };
     </script>
 
 </body>
