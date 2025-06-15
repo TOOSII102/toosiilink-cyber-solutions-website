@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles & Typography */
+        /*
+        --------------------------------------------------------------
+        Global & Base Styles
+        --------------------------------------------------------------
+        */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -16,44 +20,52 @@
             background-color: #f0f2f5; /* Light grey for a clean backdrop */
             color: #333;
             line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-        }
-
-        /* Styles for the Matrix canvas - now subtle and transparent */
-        #matrixCanvas {
-            position: fixed; /* Use fixed to cover the entire viewport regardless of scroll */
-            top: 0;
-            left: 0;
-            width: 100vw; /* Ensures full viewport width */
-            height: 100vh; /* Ensures full viewport height */
-            z-index: -1; /* Place behind all other content */
-            display: block;
-            background-color: transparent; /* Make canvas background transparent */
+            overflow-x: hidden; /* Prevent horizontal scroll issues */
         }
 
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
-            color: #2c3e50; /* Darker blue-grey for headings */
+            color: #2c3e50; /* Dark blue-grey for headings */
         }
 
-        /* Header Styling */
+        /*
+        --------------------------------------------------------------
+        Matrix Background Effect
+        --------------------------------------------------------------
+        */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; /* Placed behind content */
+            display: block;
+            background-color: transparent; /* Canvas background is transparent */
+        }
+
+        /*
+        --------------------------------------------------------------
+        Header Section
+        --------------------------------------------------------------
+        */
         header {
             background: linear-gradient(to right, #2c3e50, #34495e); /* Deep blue-grey gradient */
             color: white;
             padding: 1.5rem 0;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2); /* More pronounced shadow */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative; /* Ensure header stays above canvas */
-            z-index: 10; /* Higher z-index than canvas */
+            position: relative;
+            z-index: 10; /* Ensures header is above other elements */
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%; /* Ensures header content takes full available width */
+            width: 100%;
             max-width: 1200px;
             padding: 0 1.5rem;
         }
@@ -62,12 +74,12 @@
             font-size: 2.5rem;
             font-weight: 700;
             line-height: 1.2;
-            color: #ecf0f1; /* Lighter color for main title */
+            color: #ecf0f1;
         }
 
         .header-text p {
             font-size: 1.05rem;
-            color: #bdc3c7; /* Subtle light grey for taglines */
+            color: #bdc3c7;
             margin-top: 0.5rem;
         }
 
@@ -75,32 +87,36 @@
             font-size: 2.2rem;
             cursor: pointer;
             color: white;
-            z-index: 1000;
+            z-index: 1000; /* High z-index for clickability */
             padding: 0.6rem;
             transition: color 0.3s ease;
         }
         .hamburger-icon:hover {
-            color: #95a5a6; /* Slightly darker on hover */
+            color: #95a5a6;
         }
 
-        /* Side Menu Styling */
+        /*
+        --------------------------------------------------------------
+        Side Menu Navigation
+        --------------------------------------------------------------
+        */
         .side-menu {
             position: fixed;
             top: 0;
-            right: -320px;
-            width: 300px; /* Fixed width for the menu */
+            right: -320px; /* Initially off-screen */
+            width: 300px;
             height: 100%;
-            background-color: #34495e; /* Darker background */
+            background-color: #34495e;
             color: white;
             padding: 20px;
             box-shadow: -6px 0 15px rgba(0,0,0,0.4);
-            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* More engaging transition */
-            z-index: 999;
-            overflow-y: auto;
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Engaging slide-in effect */
+            z-index: 999; /* Below modal, above header */
+            overflow-y: auto; /* Enable scrolling for long menus */
         }
 
         .side-menu.active {
-            right: 0;
+            right: 0; /* Slide into view */
         }
 
         .side-menu .close-menu-button {
@@ -114,24 +130,24 @@
             transition: color 0.3s ease;
         }
         .side-menu .close-menu-button:hover {
-            color: #c0392b; /* Red on hover for close */
+            color: #c0392b; /* Red on hover for close button */
         }
 
         .side-menu h3 {
             text-align: center;
-            margin-top: 50px; /* More space from top */
+            margin-top: 50px;
             margin-bottom: 30px;
             font-size: 1.7rem;
             color: #2ecc71; /* Professional green accent */
             font-weight: 600;
-            border-bottom: 2px solid rgba(46, 204, 113, 0.3); /* Subtle underline */
+            border-bottom: 2px solid rgba(46, 204, 113, 0.3);
             padding-bottom: 10px;
         }
 
         .side-menu .whatsapp-service-button {
             display: flex;
             align-items: center;
-            background-color: #27ae60; /* Muted WhatsApp green */
+            background-color: #27ae60;
             color: white;
             padding: 12px 18px;
             border: none;
@@ -142,13 +158,13 @@
             margin-bottom: 10px;
             font-weight: 500;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            width: 100%; /* Ensures buttons take full width of menu */
-            box-sizing: border-box;
+            width: 100%; /* Full width within the menu */
+            box-sizing: border-box; /* Include padding in width */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .side-menu .whatsapp-service-button:hover {
-            background-color: #2ecc71; /* Lighter green on hover */
+            background-color: #2ecc71;
             transform: translateX(5px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
@@ -158,21 +174,25 @@
             font-size: 1.3rem;
         }
 
-        /* Main Content Sections */
+        /*
+        --------------------------------------------------------------
+        Main Content & Sections
+        --------------------------------------------------------------
+        */
         main {
-            padding: 2.5rem 1.5rem; /* Generous padding */
-            position: relative; /* Ensure main content sits above canvas */
-            z-index: 5; /* Higher than canvas but lower than header/side menu */
-            max-width: 4xl; /* Tailwind max-width utility, already ensures responsiveness */
-            margin-left: auto; /* Centers the main content */
-            margin-right: auto; /* Centers the main content */
+            padding: 2.5rem 1.5rem;
+            position: relative;
+            z-index: 5; /* Above canvas, below header/menu */
+            max-width: 4xl; /* Using Tailwind's max-width for responsive centering */
+            margin-left: auto;
+            margin-right: auto;
         }
         section {
             background-color: #ffffff;
             padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Enhanced shadow */
-            margin-bottom: 2.5rem; /* Consistent spacing */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2.5rem;
         }
 
         section h2 {
@@ -200,24 +220,22 @@
         }
         ul li:before {
             content: "\f00c"; /* FontAwesome checkmark icon */
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
+            font-family: "Font Awesome 5 Free"; /* Ensure correct font family */
+            font-weight: 900; /* Needed for solid icons */
             color: #2ecc71; /* Green checkmark */
             position: absolute;
             left: 0;
             top: 2px;
             font-size: 0.9em;
         }
-        ul.list-circle li:before { /* If you specifically want circles */
-            content: "\2022"; /* Unicode bullet */
-            font-family: sans-serif; /* Override Font Awesome for simple bullet */
-            color: #3498db; /* Blue circle */
-            font-size: 1.2em;
-            top: 0px;
-        }
-        /* M-Pesa Section */
+
+        /*
+        --------------------------------------------------------------
+        M-Pesa Payment Section
+        --------------------------------------------------------------
+        */
         #showMpesaButton {
-            background-color: #3498db; /* Professional blue */
+            background-color: #3498db;
             color: white;
             padding: 14px 30px;
             border: none;
@@ -227,10 +245,10 @@
             font-weight: 600;
             margin-top: 20px;
             margin-bottom: 30px;
-            display: block;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
+            display: block; /* Make it a block element */
+            width: fit-content; /* Adjust width to content */
+            margin-left: auto; /* Center button */
+            margin-right: auto; /* Center button */
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
@@ -244,7 +262,7 @@
             border-radius: 10px;
             background-color: #ffffff;
             margin-bottom: 30px;
-            max-width: 700px;
+            max-width: 700px; /* Constrain width for readability */
             margin-left: auto;
             margin-right: auto;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
@@ -256,20 +274,20 @@
             margin-bottom: 20px;
             font-weight: 700;
         }
-        #mpesaInstructions ul {
-            list-style-type: decimal; /* Use numbers for steps */
+        #mpesaInstructions ol { /* Changed to ol for ordered list of steps */
+            list-style-type: decimal;
             padding-left: 20px;
         }
-        #mpesaInstructions ul li:before {
-            content: none; /* Remove FontAwesome checkmark for ordered list */
-        }
-        #mpesaInstructions ul li {
-            padding-left: 0; /* Reset padding for ordered list */
+        #mpesaInstructions ol li { /* Removed custom bullet for ordered list */
+            padding-left: 0;
             margin-bottom: 12px;
+        }
+        #mpesaInstructions ol li:before {
+            content: none; /* Override FontAwesome bullet for ordered list */
         }
         .whatsapp-contact-button {
             display: block;
-            background-color: #25D366;
+            background-color: #25D366; /* WhatsApp green */
             color: white;
             padding: 14px 30px;
             border: none;
@@ -291,33 +309,43 @@
             background-color: #1DA851;
             transform: translateY(-2px);
         }
-        /* Flag Styling - fixed size for consistency as these are small icons, not fluid content images */
+
+        /*
+        --------------------------------------------------------------
+        Flag Styling for Virtual Numbers
+        --------------------------------------------------------------
+        */
         .flag {
-            width: 28px;
+            width: 28px; /* Fixed size for flag icons */
             height: 19px;
             border-radius: 4px;
             object-fit: cover;
             margin-right: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border: 1px solid #ddd; /* Subtle border for flags */
+            border: 1px solid #ddd;
         }
-        /* Form Styling */
+
+        /*
+        --------------------------------------------------------------
+        Form Styling
+        --------------------------------------------------------------
+        */
         form input, form select, form button {
-            padding: 14px; /* More generous padding */
-            border: 1px solid #dcdcdc; /* Lighter border */
+            padding: 14px;
+            border: 1px solid #dcdcdc;
             border-radius: 8px;
             font-size: 1.05rem;
-            width: 100%; /* Ensures form elements take full width of their container */
-            box-sizing: border-box;
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding doesn't increase width */
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         form input:focus, form select:focus {
-            border-color: #3498db; /* Blue focus */
+            border-color: #3498db;
             outline: none;
-            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2); /* Soft focus ring */
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
         }
         form button[type="submit"] {
-            background-color: #2ecc71; /* Professional green for submit */
+            background-color: #2ecc71;
             color: white;
             font-weight: 700;
             padding: 16px;
@@ -329,7 +357,12 @@
             background-color: #27ae60;
             transform: translateY(-3px);
         }
-        /* Contact Section */
+
+        /*
+        --------------------------------------------------------------
+        Contact List & Social Links
+        --------------------------------------------------------------
+        */
         .contact-list li {
             margin-bottom: 10px;
             font-size: 1.05rem;
@@ -343,19 +376,18 @@
             color: #2980b9;
             text-decoration: underline;
         }
-        /* Social Links */
         .social-links a {
             display: inline-flex;
             align-items: center;
-            background-color: #ecf0f1; /* Light background */
-            color: #34495e; /* Darker text */
+            background-color: #ecf0f1;
+            color: #34495e;
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
             margin-right: 15px;
-            margin-bottom: 10px; /* For wrapping on smaller screens */
+            margin-bottom: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .social-links a:last-child {
@@ -363,7 +395,7 @@
         }
 
         .social-links a:hover {
-            background-color: #3498db; /* Blue on hover */
+            background-color: #3498db;
             color: white;
             transform: translateY(-3px);
         }
@@ -372,35 +404,49 @@
             margin-right: 10px;
             font-size: 1.2rem;
         }
-        /* Specific style for the new registration link */
+
+        /*
+        --------------------------------------------------------------
+        Registration Link
+        --------------------------------------------------------------
+        */
         .register-link {
             background-color: #e74c3c;
             color: white;
             font-weight: 700;
             padding: 12px 25px;
-            border-radius: 8px; /* Added border-radius for consistency */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Added box-shadow */
-            text-decoration: none; /* Ensure no underline */
-            display: inline-block; /* For proper centering if needed */
-            margin-top: 15px; /* Adjust margin for spacing */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
         }
         .register-link:hover {
             background-color: #c0392b;
             transform: translateY(-3px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        /* Footer Styling */
+
+        /*
+        --------------------------------------------------------------
+        Footer Section
+        --------------------------------------------------------------
+        */
         footer {
-            background-color: #2c3e50; /* Matches header */
+            background-color: #2c3e50;
             color: #ecf0f1;
             text-align: center;
             padding: 1.5rem 0;
             box-shadow: 0 -3px 8px rgba(0,0,0,0.1);
-            position: relative; /* Ensure footer stays above canvas */
-            z-index: 10; /* Higher z-index than canvas */
+            position: relative;
+            z-index: 10;
         }
 
-        /* Responsive Adjustments */
+        /*
+        --------------------------------------------------------------
+        Responsive Design Adjustments
+        --------------------------------------------------------------
+        */
         @media (max-width: 768px) {
             .header-text h1 {
                 font-size: 2rem;
@@ -409,7 +455,7 @@
                 font-size: 0.9rem;
             }
             .side-menu {
-                width: 250px; /* Slightly smaller on small screens */
+                width: 250px;
                 right: -270px;
             }
             section {
@@ -423,7 +469,12 @@
                 justify-content: center;
             }
         }
-        /* Custom Modal Styling */
+
+        /*
+        --------------------------------------------------------------
+        Custom Modal Styles
+        --------------------------------------------------------------
+        */
         .custom-modal-overlay {
             position: fixed;
             top: 0;
@@ -434,7 +485,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 10000; /* Ensure it's on top of everything */
+            z-index: 10000; /* Highest z-index to cover all content */
         }
         .custom-modal-content {
             background: #ffffff;
@@ -477,7 +528,12 @@
         .custom-modal-content button:hover {
             background-color: #2980b9;
         }
-        /* Loading Spinner */
+
+        /*
+        --------------------------------------------------------------
+        Loading Spinner
+        --------------------------------------------------------------
+        */
         .spinner {
             border: 4px solid rgba(255, 255, 255, 0.3);
             border-top: 4px solid #ffffff;
@@ -505,62 +561,62 @@
                 <p class="mt-2 text-blue-200">Your Premier Partner in Digital Solutions & Global Connectivity</p>
                 <p class="text-sm text-blue-300">CEO: TOOSII KE | Virtual Numbers from KES 50 | Online Services from KES 150</p>
             </div>
-            <div class="hamburger-icon" onclick="openSideMenu()">
+            <div class="hamburger-icon" onclick="openSideMenu()" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <div id="sideMenu" class="side-menu">
-        <span class="close-menu-button" onclick="closeSideMenu()">&times;</span>
+    <div id="sideMenu" class="side-menu" role="navigation">
+        <span class="close-menu-button" onclick="closeSideMenu()" aria-label="Close navigation menu">&times;</span>
         <h3>Our Comprehensive Services</h3>
         <div class="space-y-3">
-            <button onclick="serviceContact('New KRA PIN Application')" class="whatsapp-service-button">
+            <button onclick="serviceContact('New KRA PIN Application')" class="whatsapp-service-button" aria-label="Contact for New KRA PIN Application">
                 <i class="fab fa-whatsapp"></i> New KRA PIN Application
             </button>
-            <button onclick="serviceContact('Filing KRA Nil Returns')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Filing KRA Nil Returns')" class="whatsapp-service-button" aria-label="Contact for Filing KRA Nil Returns">
                 <i class="fab fa-whatsapp"></i> Filing KRA Nil Returns
             </button>
-            <button onclick="serviceContact('Removing KRA Penalty')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Removing KRA Penalty')" class="whatsapp-service-button" aria-label="Contact for Removing KRA Penalty">
                 <i class="fab fa-whatsapp"></i> Removing KRA Penalty
             </button>
-            <button onclick="serviceContact('Retrieval of Lost KRA PIN')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Retrieval of Lost KRA PIN')" class="whatsapp-service-button" aria-label="Contact for Retrieval of Lost KRA PIN">
                 <i class="fab fa-whatsapp"></i> Retrieval Lost KRA PIN
             </button>
-            <button onclick="serviceContact('Change KRA Email and Password')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Change KRA Email and Password')" class="whatsapp-service-button" aria-label="Contact for KRA Email and Password Update">
                 <i class="fab fa-whatsapp"></i> KRA Email/Password Update
             </button>
-            <button onclick="serviceContact('HELB Loan Appeal')" class="whatsapp-service-button">
+            <button onclick="serviceContact('HELB Loan Appeal')" class="whatsapp-service-button" aria-label="Contact for HELB Loan Appeal Assistance">
                 <i class="fab fa-whatsapp"></i> HELB Loan Appeal Assistance
             </button>
-            <button onclick="serviceContact('HELB First Time Application')" class="whatsapp-service-button">
+            <button onclick="serviceContact('HELB First Time Application')" class="whatsapp-service-button" aria-label="Contact for HELB First Time Application">
                 <i class="fab fa-whatsapp"></i> HELB First Time Application
             </button>
-            <button onclick="serviceContact('HELB Portal Update')" class="whatsapp-service-button">
+            <button onclick="serviceContact('HELB Portal Update')" class="whatsapp-service-button" aria-label="Contact for HELB Portal Update">
                 <i class="fab fa-whatsapp"></i> HELB Portal Update
             </button>
-            <button onclick="serviceContact('CRB Clearance')" class="whatsapp-service-button">
+            <button onclick="serviceContact('CRB Clearance')" class="whatsapp-service-button" aria-label="Contact for CRB Clearance Services">
                 <i class="fab fa-whatsapp"></i> CRB Clearance Services
             </button>
-            <button onclick="serviceContact('Document Editing & Formatting')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Document Editing & Formatting')" class="whatsapp-service-button" aria-label="Contact for Document Editing & Formatting">
                 <i class="fab fa-whatsapp"></i> Document Editing & Formatting
             </button>
-            <button onclick="serviceContact('Professional CV Writing')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Professional CV Writing')" class="whatsapp-service-button" aria-label="Contact for Professional CV Writing">
                 <i class="fab fa-whatsapp"></i> Professional CV Writing
             </button>
-            <button onclick="serviceContact('Job Application Letter Drafting')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Job Application Letter Drafting')" class="whatsapp-service-button" aria-label="Contact for Job Application Letter Drafting">
                 <i class="fab fa-whatsapp"></i> Job Application Letter Drafting
             </button>
-            <button onclick="serviceContact('Good Conduct Certificate Application')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Good Conduct Certificate Application')" class="whatsapp-service-button" aria-label="Contact for Good Conduct Certificate Application">
                 <i class="fab fa-whatsapp"></i> Good Conduct Certificate App
             </button>
-            <button onclick="serviceContact('NHIF Application')" class="whatsapp-service-button">
+            <button onclick="serviceContact('NHIF Application')" class="whatsapp-service-button" aria-label="Contact for NHIF Application Assistance">
                 <i class="fab fa-whatsapp"></i> NHIF Application Assistance
             </button>
-            <button onclick="serviceContact('NSSF Application')" class="whatsapp-service-button">
+            <button onclick="serviceContact('NSSF Application')" class="whatsapp-service-button" aria-label="Contact for NSSF Application Assistance">
                 <i class="fab fa-whatsapp"></i> NSSF Application Assistance
             </button>
-            <button onclick="serviceContact('Driving License Renewal')" class="whatsapp-service-button">
+            <button onclick="serviceContact('Driving License Renewal')" class="whatsapp-service-button" aria-label="Contact for Driving License Renewal">
                 <i class="fab fa-whatsapp"></i> Driving License Renewal
             </button>
         </div>
@@ -579,7 +635,7 @@
                 Unlock additional earning potential! Join our platform today and benefit from our lucrative referral program. Register now to start earning by inviting others to experience our premier services.
             </p>
             <div class="flex justify-center mt-8">
-                <a href="https://www.safibets.com?ref=68147afd0fbcd7e0bca51798" target="_blank" class="register-link">
+                <a href="https://www.safibets.com?ref=68147afd0fbcd7e0bca51798" target="_blank" rel="noopener noreferrer" class="register-link">
                     <i class="fas fa-user-plus"></i> Join & Register Now!
                 </a>
             </div>
@@ -595,7 +651,7 @@
         <section>
             <h2>M-Pesa Payment Instructions</h2>
             <p>For your convenience, we accept secure payments via M-Pesa. Please follow the instructions below to complete your transaction efficiently.</p>
-            <button id="showMpesaButton">Show M-Pesa Payment Details</button>
+            <button id="showMpesaButton" aria-expanded="false" aria-controls="mpesaInstructions">Show M-Pesa Payment Details</button>
 
             <div id="mpesaInstructions" style="display: none;">
                 <h3>M-Pesa 'Send Money' Procedure</h3>
@@ -610,7 +666,7 @@
                     Crucial: Following your payment, it is imperative to immediately forward the <strong>M-Pesa confirmation code (MPESA REF)</strong>
                     and a clear description of your service request to our WhatsApp contact for prompt processing.
                 </p>
-                <a href="https://wa.me/254748340864?text=Hello%20TOOSIIlink%20Team%2C%20I%20have%20made%20a%20payment%20via%20M-Pesa.%20My%20M-Pesa%20code%20is%20%5BMPESA%20CODE%5D%20and%20I%20am%20requesting%20for%20%5BSERVICE%20DETAILS%5D." target="_blank" class="whatsapp-contact-button">Send M-Pesa Confirmation via WhatsApp</a>
+                <a href="https://wa.me/254748340864?text=Hello%20TOOSIIlink%20Team%2C%20I%20have%20made%20a%20payment%20via%20M-Pesa.%20My%20M-Pesa%20code%20is%20%5BMPESA%20CODE%5D%20and%20I%20am%20requesting%20for%20%5BSERVICE%20DETAILS%5D." target="_blank" rel="noopener noreferrer" class="whatsapp-contact-button">Send M-Pesa Confirmation via WhatsApp</a>
                 <p class="mt-4 text-center text-sm text-gray-600">Your request will be processed immediately upon payment verification.</p>
             </div>
         </section>
@@ -619,9 +675,9 @@
             <h2>Virtual Number Acquisition Process</h2>
             <p>To ensure seamless activation and reliable service for your international virtual WhatsApp number, please adhere to the following procedural requirements:</p>
             <ul>
-                <li>You are required to have **two distinct WhatsApp applications** installed on your device: WhatsApp Business and WhatsApp Messenger, to facilitate effective management of multiple numbers.</li>
-                <li>Upon successful order placement and verification, numbers are typically activated and ready for use within **less than 30 minutes**.</li>
-                <li>Each virtual international WhatsApp number is available at a competitive rate of **KES 50**.</li>
+                <li>You are required to have <strong>two distinct WhatsApp applications</strong> installed on your device: WhatsApp Business and WhatsApp Messenger, to facilitate effective management of multiple numbers.</li>
+                <li>Upon successful order placement and verification, numbers are typically activated and ready for use within <strong>less than 30 minutes</strong>.</li>
+                <li>Each virtual international WhatsApp number is available at a competitive rate of <strong>KES 50</strong>.</li>
             </ul>
         </section>
 
@@ -629,13 +685,13 @@
             <h2>Operational Guidelines for Virtual Numbers</h2>
             <p>To preserve the integrity and long-term viability of your international WhatsApp number, kindly observe these critical usage guidelines:</p>
             <ul>
-                <li>It is mandatory to **upload a profile photo and complete your profile information** immediately upon number activation.</li>
-                <li>Strictly **refrain from sending spam messages** or engaging in any form of unsolicited mass communication.</li>
-                <li>Avoid initiating communication with new contacts within the **initial 20 minutes** following activation.</li>
-                <li>You must **add an email address and complete your profile details** promptly after the number is active.</li>
-                <li>Should you receive an incoming message from an unsaved contact, it is crucial to **save their number to your device immediately**.</li>
+                <li>It is mandatory to <strong>upload a profile photo and complete your profile information</strong> immediately upon number activation.</li>
+                <li>Strictly <strong>refrain from sending spam messages</strong> or engaging in any form of unsolicited mass communication.</li>
+                <li>Avoid initiating communication with new contacts within the <strong>initial 20 minutes</strong> following activation.</li>
+                <li>You must <strong>add an email address and complete your profile details</strong> promptly after the number is active.</li>
+                <li>Should you receive an incoming message from an unsaved contact, it is crucial to <strong>save their number to your device immediately</strong>.</li>
                 <li>Prioritize communication with saved contacts to mitigate the risk of account suspension.</li>
-                <li>Do not send messages to a **large volume of individuals concurrently**, as this may be flagged as spamming activity.</li>
+                <li>Do not send messages to a <strong>large volume of individuals concurrently</strong>, as this may be flagged as spamming activity.</li>
             </ul>
         </section>
 
@@ -660,10 +716,10 @@
             <h2>Initiate Your Virtual Number Order</h2>
             <p class="mb-6">To proceed with your foreign WhatsApp number acquisition, please complete the form below. Our team is committed to processing your request and contacting you within 15 minutes of submission.</p>
             <form id="order-form" onsubmit="submitForm(event)" class="space-y-6">
-                <input id="name" type="text" placeholder="Your Full Name" required>
-                <input id="email" type="email" placeholder="Your Professional Email Address" required>
-                <input id="phone" type="tel" placeholder="Your Kenyan Phone Number (e.g., 07XXXXXXXX or +254XXXXXXXXX)" required>
-                <select id="country" required>
+                <input id="name" type="text" placeholder="Your Full Name" required aria-label="Your full name">
+                <input id="email" type="email" placeholder="Your Professional Email Address" required aria-label="Your professional email address">
+                <input id="phone" type="tel" placeholder="Your Kenyan Phone Number (e.g., 07XXXXXXXX or +254XXXXXXXXX)" required aria-label="Your Kenyan phone number">
+                <select id="country" required aria-label="Select desired country for virtual number">
                     <option value="">Select Desired Country for Virtual Number</option>
                     <option>Nigeria (+234)</option>
                     <option>Kenya (+254)</option>
@@ -696,13 +752,13 @@
             <h2>Connect With TOOSIIlink</h2>
             <p class="mb-4">Stay informed and engage with our community. Join our official channels for updates, announcements, and support:</p>
             <div class="flex flex-wrap gap-4 justify-center sm:justify-start social-links">
-                <a href="https://wa.link/bgiiof" target="_blank">
+                <a href="https://wa.link/bgiiof" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-whatsapp"></i> Official WhatsApp Channel
                 </a>
-                <a href="https://wa.link/bgiiof" target="_blank">
+                <a href="https://wa.link/bgiiof" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-whatsapp"></i> WhatsApp Community (Legacy)
                 </a>
-                <a href="https://t.me/toosiiKe" target="_blank">
+                <a href="https://t.me/toosiiKe" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-telegram-plane"></i> Join Telegram Channel
                 </a>
             </div>
@@ -718,109 +774,134 @@
     </footer>
 
     <script>
-        // Matrix Rain Background Effect
+        // --- Matrix Rain Background Effect ---
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
 
+        // Set canvas dimensions to full window size
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボボプヴッン';
+        // Characters for the Matrix rain effect
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
         const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const nums = '0123456789';
-        const alphabet = katakana + latin + nums;
+        const alphabet = katakana + latin + nums; // Combine characters
 
         const fontSize = 16;
-        const columns = canvas.width / fontSize;
+        const columns = canvas.width / fontSize; // Calculate number of columns based on font size
 
+        // Array to track the y-position of each drop
         const drops = [];
         for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
+            drops[i] = 1; // Start each column at the top
         }
 
+        // Function to draw the Matrix effect
         function draw() {
+            // Semi-transparent rectangle to fade out previous frames, creating the "trail" effect
             ctx.fillStyle = 'rgba(240, 242, 245, 0.05)'; // Very subtle transparent overlay matching body background
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#27AE60'; // Light green for the text
-            ctx.font = `${fontSize}px monospace`;
+            ctx.fillStyle = '#27AE60'; // Light green color for the Matrix text
+            ctx.font = `${fontSize}px monospace`; // Monospace font for uniform character width
 
+            // Loop through each drop
             for (let i = 0; i < drops.length; i++) {
+                // Pick a random character from the alphabet
                 const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                // Draw the character at its current position
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
+                // Reset drop to the top if it goes off-screen, with a random chance
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
-                drops[i]++;
+                drops[i]++; // Move the drop down
             }
         }
 
-        setInterval(draw, 33); // Adjust speed of matrix effect
+        setInterval(draw, 33); // Call draw function every 33 milliseconds for animation
 
+        // Adjust canvas on window resize
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            const columns = canvas.width / fontSize;
-            drops.length = 0; // Clear and re-initialize drops for new width
-            for (let i = 0; i < columns; i++) {
+            // Re-initialize drops array to match new width
+            const newColumns = canvas.width / fontSize;
+            drops.length = 0;
+            for (let i = 0; i < newColumns; i++) {
                 drops[i] = 1;
             }
         });
 
-        // Side Menu Logic
+        // --- Side Menu Logic ---
         function openSideMenu() {
             document.getElementById('sideMenu').classList.add('active');
+            // Add inert to main content for accessibility when side menu is open
+            document.querySelector('main').inert = true;
+            document.querySelector('header').inert = true;
         }
 
         function closeSideMenu() {
             document.getElementById('sideMenu').classList.remove('active');
+            // Remove inert from main content
+            document.querySelector('main').inert = false;
+            document.querySelector('header').inert = false;
         }
 
-        // M-Pesa Instructions Toggle
+        // --- M-Pesa Instructions Toggle ---
         document.getElementById('showMpesaButton').addEventListener('click', function() {
             const mpesaInstructions = document.getElementById('mpesaInstructions');
-            if (mpesaInstructions.style.display === 'none' || mpesaInstructions.style.display === '') {
+            const isHidden = mpesaInstructions.style.display === 'none' || mpesaInstructions.style.display === '';
+
+            if (isHidden) {
                 mpesaInstructions.style.display = 'block';
                 this.textContent = 'Hide M-Pesa Payment Details';
+                this.setAttribute('aria-expanded', 'true');
             } else {
                 mpesaInstructions.style.display = 'none';
                 this.textContent = 'Show M-Pesa Payment Details';
+                this.setAttribute('aria-expanded', 'false');
             }
         });
 
-        // Form Submission Logic (Simulated)
+        // --- Form Submission Logic (Simulated) ---
         async function submitForm(event) {
-            event.preventDefault(); // Prevent actual form submission
+            event.preventDefault(); // Prevent default form submission behavior
 
             const submitButton = document.getElementById('submitButton');
-            const originalButtonText = submitButton.innerHTML;
+            const originalButtonText = submitButton.innerHTML; // Store original text
 
+            // Display loading spinner and disable button
             submitButton.innerHTML = '<span class="spinner"></span> Submitting...';
-            submitButton.disabled = true; // Disable button during submission
+            submitButton.disabled = true;
 
+            // Retrieve form data
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const country = document.getElementById('country').value;
 
-            // In a real application, you would send this data to a server
-            // For demonstration, we'll simulate an API call
-            console.log('Form Data:', { name, email, phone, country });
+            // In a real application, you would send this data to a backend server
+            // For demonstration, we simulate an API call delay
+            console.log('Form Data Collected:', { name, email, phone, country });
 
-            await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate network delay
+            await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate 2-second network delay
 
-            // Simulate success or failure
-            const success = Math.random() > 0.1; // 90% chance of success
+            // Simulate a success or failure response
+            const success = Math.random() > 0.1; // 90% chance of success for demonstration
 
+            // Show custom modal based on simulated result
             showCustomModal(success ? 'success' : 'error', name);
 
+            // Restore button state
             submitButton.innerHTML = originalButtonText;
             submitButton.disabled = false;
-            document.getElementById('order-form').reset(); // Clear form on completion
+            document.getElementById('order-form').reset(); // Clear form fields
         }
 
-        // Custom Modal Logic
+        // --- Custom Modal Functionality ---
         function showCustomModal(type, userName) {
             let message = '';
             if (type === 'success') {
@@ -829,29 +910,51 @@
                 message = 'Oops! Something went wrong with your submission. Please try again or contact support directly.';
             }
 
+            // Create modal overlay
             const modalOverlay = document.createElement('div');
             modalOverlay.className = 'custom-modal-overlay';
+            modalOverlay.setAttribute('role', 'dialog');
+            modalOverlay.setAttribute('aria-modal', 'true');
+            modalOverlay.setAttribute('aria-labelledby', 'modalTitle');
+            modalOverlay.setAttribute('aria-describedby', 'modalDescription');
 
+            // Create modal content container
             const modalContent = document.createElement('div');
             modalContent.className = 'custom-modal-content';
 
+            // Modal title (if needed, currently using a paragraph)
+            // const modalTitle = document.createElement('h2');
+            // modalTitle.id = 'modalTitle';
+            // modalTitle.textContent = type === 'success' ? 'Success!' : 'Submission Error';
+
+            // Modal message paragraph
             const p = document.createElement('p');
+            p.id = 'modalDescription';
             p.textContent = message;
 
+            // Close button for the modal
             const closeButton = document.createElement('button');
             closeButton.textContent = 'OK';
-            closeButton.onclick = () => modalOverlay.remove();
+            closeButton.onclick = () => modalOverlay.remove(); // Remove modal from DOM
+            closeButton.setAttribute('aria-label', 'Close dialog');
 
+            // Append elements to modal
+            // modalContent.appendChild(modalTitle);
             modalContent.appendChild(p);
             modalContent.appendChild(closeButton);
             modalOverlay.appendChild(modalContent);
 
+            // Append modal to body
             document.body.appendChild(modalOverlay);
+
+            // Set focus to the close button for accessibility
+            closeButton.focus();
         }
 
-        // WhatsApp Service Contact Function
+        // --- WhatsApp Service Contact Function ---
         function serviceContact(serviceName) {
-            const whatsappNumber = '254748340864'; // Your WhatsApp number
+            const whatsappNumber = '254748340864'; // Your company's WhatsApp number
+            // Encode the service name for use in a URL
             const message = encodeURIComponent(`Hello TOOSIIlink Team, I am interested in your "${serviceName}" service.`);
             window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
         }
