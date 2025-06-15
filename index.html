@@ -38,7 +38,7 @@
 
         /*
         --------------------------------------------------------------
-        Loading Screen Styles
+        Loading Screen Styles (Percentage)
         --------------------------------------------------------------
         */
         #loading-screen {
@@ -49,6 +49,7 @@
             height: 100%;
             background-color: #2c3e50; /* Dark background for loading */
             display: flex;
+            flex-direction: column; /* To stack percentage and optionally other elements */
             justify-content: center;
             align-items: center;
             z-index: 99999; /* Ensure it's on top of everything */
@@ -60,21 +61,34 @@
         #loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none; /* Disable interaction with hidden screen */
         }
 
-        .loader {
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid #2ecc71; /* Green color for spinner */
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1.5s linear infinite;
+        #loading-percentage {
+            color: #2ecc71; /* Green color for percentage text */
+            font-size: 3rem; /* Large font size */
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px; /* Space below the percentage */
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Optional: Add a simple progress bar if desired */
+        /*
+        .progress-bar-container {
+            width: 200px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
         }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #2ecc71;
+            border-radius: 5px;
+            transition: width 0.1s linear;
+        }
+        */
 
         /*
         --------------------------------------------------------------
@@ -530,6 +544,9 @@
                 width: 80px; /* Smaller image on mobile */
                 height: 80px;
             }
+            #loading-percentage {
+                font-size: 2.5rem; /* Smaller font on mobile */
+            }
         }
 
         /*
@@ -593,7 +610,7 @@
 
         /*
         --------------------------------------------------------------
-        Loading Spinner (within form buttons)
+        Loading Spinner (within form buttons) - keep this for form submission feedback
         --------------------------------------------------------------
         */
         .spinner {
@@ -607,13 +624,16 @@
             vertical-align: middle;
             margin-right: 8px;
         }
-        /* Adjusted @keyframes spin above for the main loader */
+        @keyframes spin { /* Re-using the same spin animation for the form button spinner */
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
     <div id="loading-screen">
-        <div class="loader"></div>
-    </div>
+        <span id="loading-percentage">0%</span>
+        </div>
 
     <canvas id="matrixCanvas"></canvas>
 
@@ -839,18 +859,38 @@
     </footer>
 
     <script>
-        // --- Loading Screen Logic ---
-        window.addEventListener('load', function() {
-            const loadingScreen = document.getElementById('loading-screen');
-            const body = document.body;
+        // --- Loading Screen Logic (Percentage) ---
+        let currentProgress = 0;
+        const loadingPercentageElement = document.getElementById('loading-percentage');
+        const loadingScreen = document.getElementById('loading-screen');
+        const body = document.body;
 
-            // Add a slight delay to ensure the spinner is seen, even on fast loads
+        function updateProgress(value) {
+            currentProgress = value;
+            loadingPercentageElement.textContent = `${currentProgress}%`;
+            // If you add a progress bar, update its width here:
+            // const progressBar = document.getElementById('progressBar');
+            // if (progressBar) progressBar.style.width = `${currentProgress}%`;
+        }
+
+        // Simulate progress increment
+        const progressInterval = setInterval(() => {
+            if (currentProgress < 99) { // Animate up to 99%
+                updateProgress(currentProgress + 1);
+            }
+        }, 30); // Increment every 30ms (adjust for faster/slower animation)
+
+        // Hide loading screen when everything is loaded
+        window.addEventListener('load', function() {
+            clearInterval(progressInterval); // Stop simulated progress
+            updateProgress(100); // Ensure it shows 100% instantly on load
+
+            // Add a slight delay to ensure 100% is seen, then hide
             setTimeout(() => {
                 loadingScreen.classList.add('hidden'); // Hide the loading screen
                 body.classList.add('loaded'); // Show the body content
-            }, 500); // 500ms delay, adjust as needed
+            }, 500); // 500ms delay after hitting 100%
         });
-
 
         // --- Matrix Rain Background Effect ---
         const canvas = document.getElementById('matrixCanvas');
