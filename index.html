@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>toosiilink Company - Premier Digital Solutions & Global Virtual Numbers</title>
+    <title>TOOSIIlink Company - Premier Digital Solutions & Global Virtual Numbers</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,8 +24,8 @@
             position: fixed; /* Use fixed to cover the entire viewport regardless of scroll */
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100vw; /* Ensures full viewport width */
+            height: 100vh; /* Ensures full viewport height */
             z-index: -1; /* Place behind all other content */
             display: block;
             background-color: transparent; /* Make canvas background transparent */
@@ -53,7 +53,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
+            width: 100%; /* Ensures header content takes full available width */
             max-width: 1200px;
             padding: 0 1.5rem;
         }
@@ -88,7 +88,7 @@
             position: fixed;
             top: 0;
             right: -320px;
-            width: 300px;
+            width: 300px; /* Fixed width for the menu */
             height: 100%;
             background-color: #34495e; /* Darker background */
             color: white;
@@ -142,7 +142,7 @@
             margin-bottom: 10px;
             font-weight: 500;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            width: 100%;
+            width: 100%; /* Ensures buttons take full width of menu */
             box-sizing: border-box;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -163,6 +163,9 @@
             padding: 2.5rem 1.5rem; /* Generous padding */
             position: relative; /* Ensure main content sits above canvas */
             z-index: 5; /* Higher than canvas but lower than header/side menu */
+            max-width: 4xl; /* Tailwind max-width utility, already ensures responsiveness */
+            margin-left: auto; /* Centers the main content */
+            margin-right: auto; /* Centers the main content */
         }
 
         section {
@@ -299,7 +302,7 @@
             transform: translateY(-2px);
         }
 
-        /* Flag Styling */
+        /* Flag Styling - fixed size for consistency as these are small icons, not fluid content images */
         .flag {
             width: 28px;
             height: 19px;
@@ -316,7 +319,7 @@
             border: 1px solid #dcdcdc; /* Lighter border */
             border-radius: 8px;
             font-size: 1.05rem;
-            width: 100%;
+            width: 100%; /* Ensures form elements take full width of their container */
             box-sizing: border-box;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
