@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TOOSIIlink Company - Premier Digital Solutions & Global Virtual Numbers</title>
+    <!-- Tailwind CSS CDN for utility-first styling -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for professional typography -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /*
@@ -72,24 +75,6 @@
             margin-bottom: 20px; /* Space below the percentage */
         }
 
-        /* Optional: Add a simple progress bar if desired */
-        /*
-        .progress-bar-container {
-            width: 200px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background-color: #2ecc71;
-            border-radius: 5px;
-            transition: width 0.1s linear;
-        }
-        */
-
         /*
         --------------------------------------------------------------
         Matrix Background Effect
@@ -145,15 +130,7 @@
             margin-top: 0.5rem;
         }
 
-        .header-image {
-            width: 100px; /* Adjust as needed */
-            height: 100px; /* Keep height same as width for perfect circle */
-            border-radius: 50%; /* Makes image circular */
-            margin-right: 1rem;
-            object-fit: cover; /* Ensures image covers the area without distortion */
-            border: 3px solid #2ecc71; /* A subtle border for emphasis */
-            box-shadow: 0 0 10px rgba(46, 204, 113, 0.4); /* Glow effect */
-        }
+        /* REMOVED .header-image STYLES and IMG TAG */
 
         .hamburger-icon {
             font-size: 2.2rem;
@@ -416,7 +393,7 @@
             outline: none;
             box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
         }
-        form button[type="submit"] {
+        form button {
             background-color: #2ecc71;
             color: white;
             font-weight: 700;
@@ -425,7 +402,7 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
-        form button[type="submit"]:hover {
+        form button:hover {
             background-color: #27ae60;
             transform: translateY(-3px);
         }
@@ -540,10 +517,7 @@
             .social-links {
                 justify-content: center;
             }
-            .header-image {
-                width: 80px; /* Smaller image on mobile */
-                height: 80px;
-            }
+            /* .header-image rules were removed */
             #loading-percentage {
                 font-size: 2.5rem; /* Smaller font on mobile */
             }
@@ -631,16 +605,18 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
+    <!-- Loading Screen -->
     <div id="loading-screen">
         <span id="loading-percentage">0%</span>
-        </div>
+    </div>
 
+    <!-- Matrix Rain Background Canvas -->
     <canvas id="matrixCanvas"></canvas>
 
+    <!-- Header Section -->
     <header>
         <div class="header-content">
-            <img src="toosii image.jpg" alt="TOOSIIlink Company Logo" class="header-image">
-
+            <!-- Removed the img tag for the logo -->
             <div class="header-text">
                 <h1 class="text-3xl font-bold">TOOSIIlink Company</h1>
                 <p class="mt-2 text-blue-200">Your Premier Partner in Digital Solutions & Global Connectivity</p>
@@ -652,6 +628,7 @@
         </div>
     </header>
 
+    <!-- Side Navigation Menu -->
     <div id="sideMenu" class="side-menu" role="navigation">
         <span class="close-menu-button" onclick="closeSideMenu()" aria-label="Close navigation menu">&times;</span>
         <h3>Our Comprehensive Services</h3>
@@ -777,6 +754,7 @@
                 <li>Should you receive an incoming message from an unsaved contact, it is crucial to <strong>save their number to your device immediately</strong>.</li>
                 <li>Prioritize communication with saved contacts to mitigate the risk of account suspension.</li>
                 <li>Do not send messages to a <strong>large volume of individuals concurrently</strong>, as this may be flagged as spamming activity.</li>
+                <li>... (rest of the operational guidelines)</li>
             </ul>
         </section>
 
@@ -868,7 +846,7 @@
         function updateProgress(value) {
             currentProgress = value;
             loadingPercentageElement.textContent = `${currentProgress}%`;
-            // If you add a progress bar, uncomment this and the HTML for it:
+            // If you added a progress bar, update its width here:
             // const progressBar = document.getElementById('progressBar');
             // if (progressBar) progressBar.style.width = `${currentProgress}%`;
         }
@@ -1040,11 +1018,6 @@
             const modalContent = document.createElement('div');
             modalContent.className = 'custom-modal-content';
 
-            // Modal title (if needed, currently using a paragraph)
-            // const modalTitle = document.createElement('h2');
-            // modalTitle.id = 'modalTitle';
-            // modalTitle.textContent = type === 'success' ? 'Success!' : 'Submission Error';
-
             // Modal message paragraph
             const p = document.createElement('p');
             p.id = 'modalDescription';
@@ -1057,7 +1030,6 @@
             closeButton.setAttribute('aria-label', 'Close dialog');
 
             // Append elements to modal
-            // modalContent.appendChild(modalTitle);
             modalContent.appendChild(p);
             modalContent.appendChild(closeButton);
             modalOverlay.appendChild(modalContent);
